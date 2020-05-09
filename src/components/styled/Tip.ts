@@ -8,6 +8,8 @@ const Tip = styled.span`
     height: 2vh;
     text-align: center;
     vertical-align: center;
+    margin: 0px;
+    padding: 0px;
 `;
 
 export default Tip;

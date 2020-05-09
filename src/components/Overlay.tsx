@@ -50,15 +50,15 @@ function Overlay({
                 right: 0,
                 top: 0,
                 overflow: "hidden",
-                height: isOpen ? 350 : 0,
-                boxShadow: "inset 0 1px 3px 0 rgba(0, 0, 0, 0.34)",
+                height: '50vh',
+                boxShadow: "inset 0 1px 5px 0 rgba(0, 0, 0, 0.34)",
                 backgroundColor: "#fff",
-                transition: '0.3s ease-in-out',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
             }}
+            className={isOpen ? "animate__animated animate__fadeInDown" : ""}
         >
 
             <OverlayContainer>

@@ -6,7 +6,6 @@ const OverlayContainer = styled.div`
     align-items: center;
     margin-top: 5rem;
     min-height: 25vh;
-    width 85vw;
 `;
 
 const List = styled.ul`
