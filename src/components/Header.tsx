@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-interface Header {
+interface Props {
   setFavoritesSelected: any;
   favoritesSelected: boolean;
 }
@@ -48,26 +48,25 @@ const Item: any = styled.span`
 
 const Logo = styled.img`
   cursor: pointer;
-  height: 2.5rem;
+  height: 3rem;
 
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.015);
   }
 `;
 
 function Header({
   setFavoritesSelected,
   favoritesSelected,
-}: Header) {
+}: Props) {
 
   return (
-    <Nav>
+    <Nav id="header">
       <LeftContainer>
         <Logo
           alt="logo"
           onClick={() => setFavoritesSelected(false)}
-          src={require('../assets/logo.png')}
-          style={{ height: "3rem" }}
+          src={require('../resources/logo.png')}
         />
       </LeftContainer>
       <RightContainer>
