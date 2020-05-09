@@ -11,6 +11,7 @@ const Star = styled.span<Props>`
     pointer-events: inherit;
     cursor: pointer;
     margin: 0.5rem;
+    outline: none;
 
     &:hover {
         transform: ${({ canGrow }: Props) => canGrow ? "scale(1.015);" : ""}
