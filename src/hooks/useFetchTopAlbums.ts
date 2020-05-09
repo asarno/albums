@@ -11,7 +11,13 @@ const simulateAjaxRequest = () => new Promise((resolve, reject) => {
     const image: string = album['im:image'][2].label;
     const id: string = album.id.attributes["im:id"];
 
-    // create a front end friendly item that just returns what i need :)
+    // i noticed the app was suffering from latency for loading the images at the same time,
+    // this is a quick hack to load them ahead of time.
+    // preloading an image will make UI appear more fluid
+    const img: any = document.createElement('IMG');
+    img.src = image;
+
+    // create a front end friendly item that just returns what we need :)
     return {
       id,
       name,

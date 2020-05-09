@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import './index.css';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { useFetchTopAlbums } from './hooks/useFetchTopAlbums';
+
 import Albums from './components/Albums';
 import Header from './components/Header';
-import { useFetchTopAlbums } from './hooks/useFetchTopAlbums';
-import styled from '@emotion/styled';
-import RingLoader from "react-spinners/RingLoader";
-import { useLocalStorage } from './hooks/useLocalStorage';
 import Overlay from './components/Overlay';
+import RingLoader from 'react-spinners/RingLoader';
+import { AppContainer } from './components/styled';
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #eff0f2;
-`;
+import './index.css';
 
 function App() {
   // determines whether or not favorites tab is selected
   const [favoritesSelected, setFavoritesSelected] = useState(false);
-  
+
   // array of favorite indicies of which is preserved in browser via useLocalStorage hook
   const [favoritesMap, setFavoritesMap] = useLocalStorage("favoritesMap", []);
-  
+
   // actual list of favorited albums
   const [favorites, setFavorites] = useState([]);
 
@@ -68,12 +61,11 @@ function App() {
       newFavorites.push(index);
       setFavoritesMap(newFavorites);
     }
-    
+
   };
 
-
   return (
-    <Container>
+    <AppContainer>
 
       <Header
         favoritesSelected={favoritesSelected}
@@ -108,7 +100,7 @@ function App() {
         />
       }
 
-    </Container>
+    </AppContainer>
   );
 }
 

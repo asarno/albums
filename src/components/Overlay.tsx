@@ -1,6 +1,15 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { AlbumProps } from '../types/Album';
+
+import {
+    Image,
+    Star,
+    OverlayContainer,
+    Item,
+    ButtonContainer,
+    Button,
+    List,
+} from './styled';
 
 interface Props {
     album: AlbumProps
@@ -9,65 +18,6 @@ interface Props {
     onClose: () => any
     toggleFavorite: (e: React.SyntheticEvent, index: number) => any,
 }
-
-const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5rem;
-    min-height: 25vh;
-    width 85vw;
-`;
-
-const List = styled.ul`
-    list-style: none;
-    max-width: 50%;
-`;
-
-const Item = styled.li`
-    margin: 1rem;
-`;
-
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const Button = styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-    color: #fff;
-    background-color: #82B950;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0.5rem;
-    font-size: 1rem;
-    outline: none;
-
-    &:hover {
-        transform: scale(1.015);
-      }
-`;
-
-const Star: any = styled.span`
-    color: ${({ isFavorited }: any) => isFavorited ? "#e2e240" : "#d3d3d3"};
-    font-size: 2rem;
-    pointer-events: inherit;
-    cursor: pointer;
-    margin: 0.5rem;
-
-    &:hover {
-        transform: scale(1.015);
-      }
-`;
-
-const Image = styled.img`
-    width: 170px;
-    height: 170px;
-`;
 
 function Overlay({
     album,
@@ -111,7 +61,7 @@ function Overlay({
             }}
         >
 
-            <Container>
+            <OverlayContainer>
 
                 <Image src={image} alt="albumCover" />
 
@@ -122,10 +72,10 @@ function Overlay({
                     <Item style={{ fontSize: '0.5rem', fontStyle: 'italic' }}>{rights}</Item>
                 </List>
 
-            </Container>
+            </OverlayContainer>
 
             <ButtonContainer>
-                <Star isFavorited={isFavorited} onClick={(e: React.SyntheticEvent) => toggleFavorite(e, index)}>{String.fromCharCode(9733)}</Star>
+                <Star canGrow isFavorited={isFavorited} onClick={(e: React.SyntheticEvent) => toggleFavorite(e, index)}>{String.fromCharCode(9733)}</Star>
                 <Button style={{ width: '12vw' }} onClick={() => window.open(url, "_blank")}>See in iTunes</Button>
                 <Button style={{ backgroundColor: '#d34444', width: '8vw' }} onClick={onClose}>Close</Button>
             </ButtonContainer>
